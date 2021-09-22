@@ -19,6 +19,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Discovery" options="-parameters" />
       <module name="Gateway" options="-parameters" />
       <module name="project3-spring" options="-parameters" />
     </option>
