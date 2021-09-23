@@ -1,6 +1,6 @@
 server:
   port: 9191
-#configure
+
 spring:
   application:
     name: API-Gateway
@@ -13,7 +13,7 @@ spring:
             - Path=/books/**
 
 
-#Configure
+
 eureka:
   client:
     register-with-eureka: true

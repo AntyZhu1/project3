@@ -8,13 +8,13 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lovin</groupId>
-	<artifactId>Gateway</artifactId>
+	<groupId>com.revature</groupId>
+	<artifactId>cloud-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Gateway</name>
-	<description>Gateway</description>
+	<name>cloud-gateway</name>
+	<description>cloud-gateway</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>

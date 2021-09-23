@@ -1,10 +1,10 @@
-package com.lovin.Discovery;
+package com.revature.cloud.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DiscoveryApplicationTests {
+class CloudGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
