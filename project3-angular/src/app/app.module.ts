@@ -24,7 +24,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
 import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
-import { ListUsersComponent } from './list-users/list-users.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 
 
