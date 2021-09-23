@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
 // import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
+import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
-  // { path: '**', component: PageNotFoundComponent }
+  // { path: '**', component: PageNotFoundComponent },
+  {path: 'users', component: SearchByUsernameComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
