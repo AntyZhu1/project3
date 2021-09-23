@@ -49,4 +49,8 @@ export class UserService {
     return this.http.get<User>(`${this.apiServerUrl}/user/user/${username}/${password}`)
   }
 
+  public getUsersByUsername(username: string): Observable<User> {
+    return this.http.get<User>(`${this.apiServerUrl}/user/search/${username}`)
+  }
+
 }
