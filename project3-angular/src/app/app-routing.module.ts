@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
   // { path: '**', component: PageNotFoundComponent }
-  {path: 'bookclub', component: BookClubComponent},
+  {path: 'bookclub/:id', component: BookClubComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

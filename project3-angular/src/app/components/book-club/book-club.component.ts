@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IVolume } from 'src/app/models/volume.model';
 import { GoogleBookApiService } from 'src/app/services/google-book-api.service';
 
@@ -11,10 +12,14 @@ export class BookClubComponent implements OnInit {
 
   books : any;
   book: any;
+  clubId: any;
 
-  constructor(private googleBookService: GoogleBookApiService) { }
+  constructor(private googleBookService: GoogleBookApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.clubId = params.id
+    })
     this.googleBookService.getAllBooks().subscribe(data =>{
       this.books = data.items;
       console.log(this.books)
