@@ -12,7 +12,8 @@ export class DataService {
    *  Please read comments above the retrieval methods,
    *  data being passed to methods are crucial to retrieving data
    *  from this api as they require specific data to be passed.
-   *
+   *  Use " " to require search term
+   *  Use - to exclude term
    */
   private ENDPOINTS = {
 
