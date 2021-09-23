@@ -25,52 +25,21 @@ public class FriendshipServiceImpl implements FriendshipService {
     public List<Friendship> getAllFriendships() {
         return repository.findAll();
     }
-
-    @Override
-    public Friendship getFriendshipById(long friendship_Id) {
-        return null;
-    }
-
-    @Override
-    public Friendship approveFriendship(long friendship_id, Friendship friendship) {
-        Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus(friendship.getStatus());
-
-        return repository.save(friendshipDB);
-    }
-
-    @Override
+    
+	@Override
     public Friendship declineFriendship(long friendship_id, Friendship friendship) {
         Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus(friendship.getStatus());
+        friendshipDB.setStatus("declined");
 
         return repository.save(friendshipDB);
     }
 
+	@Override
+    public Friendship approveFriendship(long friendship_id, Friendship friendship) {
+        Friendship friendshipDB = repository.getById(friendship_id);
+        friendshipDB.setStatus("approved");
 
-    @Override
-    public Boolean friendshipExists(long friend1_id, long friend2_id) {
-        Friendship friendshipDB = repository.findFriendshipByUsersId(friend1_id, friend2_id);
-        if (friendshipDB != null) {
-            return true;
-        } else
-            return false;
-    }
-
-    @Override
-    public Friendship findFriendshipByUsersId(long friend1_id, long friend2_id) {
-        return null;
-    }
-
-    @Override
-    public List<Friendship> getAllUsersFriendships(long userId) {
-        return null;
-    }
-
-    @Override
-    public Friendship getFriendship(long friend1_id, long friend2_id) {
-        Friendship friendship = repository.findByFriendship(friend1_id, friend2_id);
-        return friendship;
-    }
+        return repository.save(friendshipDB);
+	}
 
 }
