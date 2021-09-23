@@ -51,7 +51,7 @@ public class UserController {
 		return service.getUserByUsernameAndPassword(username, password);
 	}
 	
-	//Searches for all users whos username contains the given string
+	//Searches for all users whose username contains the given string
 	@GetMapping("/user/search/{username}")
 	public List<User> getAllUserByUsername(@PathVariable("username") String username){
 		return service.getAllUsersByUsername(username);

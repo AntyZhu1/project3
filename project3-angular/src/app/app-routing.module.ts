@@ -7,6 +7,7 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+// import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
