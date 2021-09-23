@@ -4,6 +4,7 @@ import { IReadlist } from 'src/app/models/readlist.model';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/services/user';
 import { UserProfileService } from 'src/app/services/user-profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -20,16 +21,17 @@ export class ProfileComponent implements OnInit {
   userHasReadlist: boolean = false;
   currentUser: User = {
     userId: 0,
-    firstName: "test",
-    lastName: "user",
+    firstName: "",
+    lastName: "",
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   constructor(private readlistService: ReadlistService,
-    private userService: UserService, private profileService: UserProfileService) { }
+    private userService: UserService, private profileService: UserProfileService, private route:Router) { }
 
     ngOnInit(): void {
       this.userLoggedIn = false;
@@ -67,8 +69,23 @@ export class ProfileComponent implements OnInit {
       this.editingPage = true;
     }
 
-    public saveEdits() {
+    public saveEdits(firstName: string, lastName: string, email: string, mobile: string, about_me: string) {
       this.editingPage = false;
+      this.currentUser.firstName = firstName;
+      this.currentUser.lastName = lastName;
+      this.currentUser.email = email;
+      this.currentUser.mobile = mobile;
+      this.currentUser.about_me = about_me;
+
+      this.userService.updateUser(this.currentUser.userId, this.currentUser).subscribe(x => console.log(x))
+    }
+
+    logout() {
+      this.userService.removeCurrentUser();
+      alert("Logged out")
+      setTimeout(() => {
+        this.route.navigate(['/home']);
+      }, 500)
     }
 
 }

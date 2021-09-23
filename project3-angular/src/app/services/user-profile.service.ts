@@ -18,7 +18,8 @@ export class UserProfileService {
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   private currentProfile:UserProfile = {

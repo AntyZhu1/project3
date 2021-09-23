@@ -16,15 +16,29 @@ export class UserService {
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
+  // public setCurrentUser(user: User) {
+  //   this.currentUser = user;
+  // }
+
   public setCurrentUser(user: User) {
-    this.currentUser = user;
+    sessionStorage.setItem('currentUser', JSON.stringify(user))
   }
 
+  // public getCurrentUser(): User {
+  //   return this.currentUser;
+  // }
+
   public getCurrentUser(): User {
-    return this.currentUser;
+    this.currentUser = JSON.parse(sessionStorage.currentUser)
+    return this.currentUser
+  }
+
+  public removeCurrentUser() {
+    sessionStorage.removeItem('currentUser')
   }
 
   constructor(private http: HttpClient) { }
@@ -38,7 +52,7 @@ export class UserService {
   public getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiServerUrl}/user/${id}`)
   }
-  public updateUsers(id: number, user: User): Observable<any> {
+  public updateUser(id: number, user: User): Observable<any> {
     return this.http.put<any>(`${this.apiServerUrl}/user/update/${id}`, user)
   }
   public userExists(username: string, password: string): Observable<boolean> {

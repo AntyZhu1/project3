@@ -17,17 +17,8 @@ export class LoginComponent implements OnInit {
     mobile: "",
     email: "",
     username: "",
-    password: ""
-  };
-
-  public user2:User = {
-    userId: 0,
-    firstName : "",
-    lastName: "",
-    mobile: "",
-    email: "",
-    username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   constructor(private userService: UserService, private route:Router) { }

@@ -20,7 +20,8 @@ export class ReadlistComponent implements OnInit {
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   constructor(private readlistService: ReadlistService,
