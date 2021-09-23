@@ -7,6 +7,7 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { BookClubComponent } from './components/book-club/book-club.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
   // { path: '**', component: PageNotFoundComponent }
-  { path: '**', component: PageNotFoundComponent }
+  {path: 'bookclub', component: BookClubComponent},
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
