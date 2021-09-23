@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-by-username',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchByUsernameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onClick(username: string){
-
+    this.router.navigate(['users', username]);
   }
 
 }

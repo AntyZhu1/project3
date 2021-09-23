@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'readlist', component: ReadlistComponent },
   // { path: '**', component: PageNotFoundComponent },
   {path: 'users', component: SearchByUsernameComponent},
-  {path: 'userlist', component: ListUsersComponent},
+  {path: 'users/:Username', component: ListUsersComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
