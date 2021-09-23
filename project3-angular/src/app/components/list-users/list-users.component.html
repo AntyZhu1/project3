@@ -1,6 +1,20 @@
 <app-navbar></app-navbar>
+
+
+
+<div style="background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://npr.brightspotcdn.com/dims4/default/57802ac/2147483647/strip/true/crop/5616x3744+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F61%2Fcd%2F6f68d7354b678bdc5514ef4858a9%2Fshutterstock-108584921.jpg)"
+    class="holder bg">
 <div class="container">
-    <ul class="list-group" *ngFor="let user of users">
-        <li class="list-group-item">{{ user.username }}</li>
-      </ul>
+  <div class="row">
+    <div class="col-sm-4" *ngFor='let user of users'>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">{{user.about_me}}</p> -->
+          <a (click)="sendFriendRequest(user.username)" class="btn">Send Friend Request</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>  

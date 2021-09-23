@@ -23,4 +23,8 @@ export class ListUsersComponent implements OnInit {
   
   }
 
+  sendFriendRequest(username : string)  {
+    
+  }
+
 }
