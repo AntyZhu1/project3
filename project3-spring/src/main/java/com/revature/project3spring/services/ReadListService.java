@@ -1,10 +1,9 @@
 package com.revature.project3spring.services;
 
-import java.util.List;
-
+import com.revature.project3spring.entities.ReadList;
 import org.springframework.stereotype.Service;
 
-import com.revature.project3spring.entities.ReadList;
+import java.util.List;
 
 @Service
 public interface ReadListService {

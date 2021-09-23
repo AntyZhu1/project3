@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ReadList {
+public class    ReadList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long readListId;
