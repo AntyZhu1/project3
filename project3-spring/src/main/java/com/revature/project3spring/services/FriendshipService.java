@@ -5,8 +5,6 @@ import java.util.List;
 import com.revature.project3spring.entities.Friendship;
 import org.springframework.stereotype.Service;
 
-import com.revature.project3spring.entities.Friendship;
-
 @Service
 public interface FriendshipService {
 
