@@ -10,6 +10,6 @@ public interface FriendshipService {
 
     Friendship saveFriendship(Friendship friendship);
     List<Friendship> getAllFriendships();
-	Friendship approveFriendship(long friendship_id, Friendship friendship);
-	Friendship declineFriendship(long friendship_id, Friendship friendship);
+    Friendship approveFriendship(long friendship_id, Friendship friendship);
+    Friendship declineFriendship(long friendship_id, Friendship friendship);
 }
