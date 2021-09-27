@@ -17,9 +17,11 @@ export class BookClubComponent implements OnInit {
   constructor(private googleBookService: GoogleBookApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //Grabs an ID from the url
     this.route.params.subscribe(params => {
       this.clubId = params.id
     })
+    
     this.googleBookService.getAllBooks().subscribe(data =>{
       this.books = data.items;
       console.log(this.books)

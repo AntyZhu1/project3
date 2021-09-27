@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.revature.project3spring.entities.User;
 
+import lombok.Getter;
+
 @Service
 public interface UserService {
 	User saveUser(User user);

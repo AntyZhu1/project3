@@ -8,6 +8,10 @@ import com.revature.project3spring.entities.BookClub;
 
 @Service
 public interface BookClubService {
+	BookClub saveBookClub(BookClub bookClub);
+	BookClub getBookClubById(long clubId);
+	BookClub updateBookClub(BookClub bookClub, long clubId);
 	List<BookClub> getAllBookClub();
 	List<BookClub> getAllBookClubByBookClubClubNameContaining(String name);
+	void deleteBookClub(long clubId);
 }
