@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
+import { BestsellersComponent } from './components/bestsellers/bestsellers.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SortDirective } from './directive/sort.directive';
     PageNotFoundComponent,
     BookDetailComponent,
     SidebarComponent,
-    SortDirective
+    SortDirective,
+    BestsellersComponent
   ],
   imports: [
     BrowserModule,
