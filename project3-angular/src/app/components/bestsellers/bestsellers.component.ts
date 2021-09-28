@@ -1,23 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IReadlist } from 'src/app/models/readlist.model';
-import { BooksService } from 'src/app/services/books.service';
 import { ReadlistService } from 'src/app/services/readlist.service';
 
-
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-bestsellers',
+  templateUrl: './bestsellers.component.html',
+  styleUrls: ['./bestsellers.component.css']
 })
-export class ProductsComponent implements OnInit {
-  public allBooks: any;
-  public isbn: any;
-  public title: any;
-  public author: any;
-  public summary: any;
-  public image: any;
-  public books: any;
+export class BestsellersComponent implements OnInit {
 
   public readList: IReadlist[] = [];
   public bestSellingBooks: any[] = [];
@@ -26,42 +17,10 @@ export class ProductsComponent implements OnInit {
   public whichBooks: any;
   public bookFound: any;
 
-
-  constructor(private bookService: BooksService, private readlistService:
-    ReadlistService, private router: Router) { }
-
-  viewBook(book: any) {
-    this.router.navigate(['/products', book.isbn])
-  }
-
+  constructor(private readlistService: ReadlistService, private router: Router) {}
+  
   ngOnInit(): void {
-    // set boolean value to false so all books display when component is initialized
-    this.viewingBestSellers = false;
-
-    this.books = this.bookService.getBooks();
-    this.bookService.getAllBooks().subscribe((data) => {
-      this.allBooks = data
-      // allow sorting on all books table at the start
-      this.whichBooks = data });
-  }
-
-  public addBook(book: any) {
-    this.readlistService.addReadlistEntry(book);
-  }
-
-  viewAllBooks(){
-    // change boolean value to false to display all books table on html
-    this.viewingBestSellers = false;
-
-    // allow sorting on all books table again
-    this.whichBooks = this.allBooks;
-  }
-
-  viewBestSelling(){
-    // change boolean value to true to display best selling books table on html
-    this.viewingBestSellers = true;
-
-    // get all books currently being read by users
+     // get all books currently being read by users
     // set entryNum value to 0 for every book 
     this.readlistService.getReadlist().subscribe(data => {
       this.readList = data;
@@ -116,11 +75,16 @@ export class ProductsComponent implements OnInit {
       });
 
       console.log(this.selectedBestSellers);
-
-      // allow sorting on best selling books table
-      this.whichBooks = this.selectedBestSellers;
     }, error => {
       console.log(error);
     });
+  }
+
+  viewBook(book: any) {
+    this.router.navigate(['/products', book.isbn])
+  }
+
+  public addBook(book: any) {
+    this.readlistService.addReadlistEntry(book);
   }
 }
