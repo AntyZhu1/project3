@@ -7,5 +7,5 @@ import com.revature.project3spring.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-    User findByUsernameAndPassword(String username, String password);
+    //User findByUsernameAndPassword(String username, String password);
 }
