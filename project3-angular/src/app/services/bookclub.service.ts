@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class BookclubService {
 
+  bookClub: any;
+
   private BOOK_CLUB_URL = "http://localhost:9031/bookclub"
 
   private ENDPOINTS = {
@@ -16,8 +18,15 @@ export class BookclubService {
   constructor(private http: HttpClient) { }
 
   createBookClub(data: any): Observable<any>{
+    this.bookClub = data;
     return this.http.post<any>(
       `${this.BOOK_CLUB_URL}`, data
+    )
+  }
+
+  getBookClub(id: number): Observable<any>{
+    return  this.http.get<any>(
+      `${this.BOOK_CLUB_URL + "/" + id}`
     )
   }
 }
