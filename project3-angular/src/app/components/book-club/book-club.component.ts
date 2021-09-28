@@ -16,9 +16,18 @@ export class BookClubComponent implements OnInit {
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //Grabs an ID from the url
     this.route.params.subscribe(params => {
       this.clubId = params.id
     })
+<<<<<<< HEAD
+=======
+    
+    this.googleBookService.getAllBooks().subscribe(data =>{
+      this.books = data.items;
+      console.log(this.books)
+    })
+>>>>>>> 9c625d933e1c3496d198e880c7b1c8f86d65e4de
 
     //returns a book object by the ISBN
     //Book API returns JSON with an array, so you have to use
