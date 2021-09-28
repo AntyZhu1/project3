@@ -1,8 +1,10 @@
 package com.revature.project3spring.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import com.revature.project3spring.repositories.UserRepository;
+import com.revature.project3spring.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.query.Param;
@@ -18,12 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.project3spring.entities.User;
 import com.revature.project3spring.services.UserService;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+
+//@CrossOrigin(origins = "http://localhost:4200/", allowedHeaders = "*")
 @RestController
 public class UserController {
 
 	@Qualifier("userServiceImpl")
 	@Autowired
-	UserService service;
+	private UserServiceImpl service;
 
 	@Autowired
 	private UserRepository userRepo;
@@ -33,7 +39,20 @@ public class UserController {
 		return service.getAllUsers();
 	}
 
+	@PostMapping("/process_register")
+	public String processRegister(User user, HttpServletRequest request)
+			throws UnsupportedEncodingException, MessagingException {
+		service.register(user, getSiteURL(request));
+		return "register_success";
+	}
+
+	private String getSiteURL(HttpServletRequest request) {
+		String siteURL = request.getRequestURL().toString();
+		return siteURL.replace(request.getServletPath(), "");
+	}
+
 	@PostMapping("/user/add")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public User saveUser(@RequestBody User user) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
