@@ -29,7 +29,6 @@ export class BookClubCreateComponent implements OnInit {
 
   constructor(private bookClubService: BookclubService, private userService: UserService) {
     this.user = this.userService.getCurrentUser();
-    console.log(this.user);
    }
 
   ngOnInit(): void {

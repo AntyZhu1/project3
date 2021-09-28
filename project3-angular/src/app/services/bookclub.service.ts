@@ -24,6 +24,12 @@ export class BookclubService {
     )
   }
 
+  public getAllUserBookClubByUserId(id: number) : Observable<any>{
+    return this.http.get<any>(
+      "http://localhost:9031/users/" + id +"/bookclubs"
+    )
+  }
+
   getBookClub(id: number): Observable<any>{
     return  this.http.get<any>(
       `${this.BOOK_CLUB_URL + "/" + id}`

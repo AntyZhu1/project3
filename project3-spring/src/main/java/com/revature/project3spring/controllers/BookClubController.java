@@ -48,6 +48,7 @@ public class BookClubController {
 	//This POST request creates a new book club
 	@PostMapping("/bookclub")
 	public BookClub addBookClub(@RequestBody BookClub bookClub) {
+
 		return service.saveBookClub(bookClub);
 	}
 	
