@@ -24,6 +24,8 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
 import { BookClubComponent } from './components/book-club/book-club.component';
+import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
+import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { BookClubComponent } from './components/book-club/book-club.component';
     SidebarComponent,
     SortDirective,
     BookClubComponent,
+    BookClubCreateComponent,
+    BookClubUpdateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+
+<div class="body">
+    <app-navbar></app-navbar> 
+    <br>
+        <div>
+            <div class="container center">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="scrollable card">
+                            <h1 class="text-white font-weight-bold bigger-text">Create Book Club</h1>
+                            <form #loginForm="ngForm" (submit)="onClickSubmit(bookClubName.value, bookISBN.value)">
+                                <div class="form-group" >
+                                  <label for="bookClubName">Create a Name for Your Book Club</label>
+                                  <input type="text" class="form-control" name="bookClubName" #bookClubName ngModel aria-describedby="bookClubName">
+                                </div>
+                                <div class="form-group">
+                                  <label for="bookISBN">Enter the ISBN for Your First Book</label>
+                                  <input type="text" class="form-control" name="bookISBN" #bookISBN ngModel>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
