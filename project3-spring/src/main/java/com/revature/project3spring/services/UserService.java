@@ -14,4 +14,6 @@ public interface UserService {
 	User updateUser(long userId, User user);
 	Boolean userExists(String username, String password);
 	User getUserByUsernameAndPassword(String username, String password);
+
+	boolean verify(String verification);
 }

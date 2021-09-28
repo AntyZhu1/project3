@@ -11,7 +11,7 @@ import com.revature.project3spring.entities.User;
 import com.revature.project3spring.repositories.UserRepository;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository repository;
@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User getUserById(long userId) {
 		Optional<User> user = repository.findById(userId);
-		if(!user.isPresent())	{
-			
+		if (!user.isPresent()) {
+
 		}
 		return user.get();
 	}
@@ -50,10 +50,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Boolean userExists(String username, String password) {
 		User userDB = repository.findByUsernameAndPassword(username, password);
-		if (userDB != null){
+		if (userDB != null) {
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
 
@@ -61,5 +60,18 @@ public class UserServiceImpl implements UserService{
 	public User getUserByUsernameAndPassword(String username, String password) {
 		User user = repository.findByUsernameAndPassword(username, password);
 		return user;
+	}
+
+	@Override
+	public boolean verify(String verification) {
+		User user = repository.findByVerificationCode(verification);
+		if (user == null || user.isEnabled()) {
+			return false;
+		} else {
+			user.setVerificationCode(null);
+			user.setEnabled(true);
+			repository.save(user);
+		}
+		return true;
 	}
 }
