@@ -5,6 +5,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.revature.project3spring.entities.User;
@@ -16,8 +18,22 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository repository;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Autowired
+	private JavaMailSender mailSender;
+
+	public void register(User user, String siteURL) {
+
+	}
+
+	private void sendVerificationEmail(User user, String siteURL) {
+
+	}
 	@Override
 	public User saveUser(User user) {
+
 		return repository.save(user);
 	}
 
