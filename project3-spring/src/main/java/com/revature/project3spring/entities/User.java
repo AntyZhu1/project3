@@ -1,10 +1,6 @@
 package com.revature.project3spring.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +19,19 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String mobile;
+	@Column(nullable = false, unique = true, length = 45)
 	private String email;
 	@Column(unique = true)
 	private String username;
+	@Column(name = "")
 	private String password;
+
+	//for email verification
+	@Column(name="verification_code", length = 64)
+	private String verificationCode;
+
+	// if enabled is true, user should be able to login
+	// Initially false
+	private boolean enabled;
+
 }
