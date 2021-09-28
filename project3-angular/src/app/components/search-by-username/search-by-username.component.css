@@ -1,0 +1,19 @@
+
+
+.label {
+    text-align: left;
+    color: black;
+}
+
+.btn{
+    color: white;
+    background-color: black;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
+.input{
+   float: right;
+}
