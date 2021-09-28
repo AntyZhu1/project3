@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BooksService {
   private apiServerUrl = environment.apiBaseUrl;
   books = [
-    
+
     {
       "ISBN": 9789000307975,
       "title": "Vrienden voor het leven",
@@ -355,5 +355,5 @@ export class BooksService {
 
   getAllBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiServerUrl}/book`)
-  } 
+  }
 }
