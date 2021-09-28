@@ -28,10 +28,10 @@ public class BookClubController {
 	}
 	
 	//This GET request returns an array containing all book clubs that contain the variable 'name' in their name.
-	@GetMapping("/bookclub/name={name}")
+	/*@GetMapping("/bookclub/name={name}")
 	public List<BookClub> getAllBookClubsContaining(@PathVariable("name") String name){
 		return service.getAllBookClubByBookClubClubNameContaining(name);
-	}
+	}*/
 	
 	//This GET request returns the book club with the given id
 	@GetMapping("/bookclub/{id}")
