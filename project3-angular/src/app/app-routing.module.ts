@@ -7,11 +7,13 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { BooksDisplayComponent } from './components/books-display/books-display.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductsComponent},
+  { path: 'book-display', component: BooksDisplayComponent},
   { path: 'products/:ISBN', component: BookDetailComponent},
   // { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   // { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },

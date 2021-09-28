@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="m-3">
+        <button class="btn btn-success mx-2" (click)="sortByTitle()">Sort By Title</button>
+        <button class="btn btn-dark mx-2" (click)="sortByAuthor()">Sort By Author</button>
+        <button class="btn btn-secondary mx-2" (click)="sortByPrice()">Sort By Price Low to High</button>
+        <button class="btn btn-secondary mx-2" (click)="sortByPriceR()">Sort By Price High to Low</button>
+    </div>
+<div class="container w-50 m-auto border" *ngFor="let book of bookObj">
+    <h4 class="my-2">{{ book.title }}</h4>
+    <h4 class="my-2">{{ book.author }}</h4>
+    <img src="{{ book.image }}" class="img-fluid img-thumbnail" width="200" height="500" alt="">
+    <h4 class="my-2">{{ book.summary }}</h4>
+    <hr class="dotted">
+    <h4> Price: {{ book.price.displayValue | currency:'EUR' }} / {{ book.price.displayValue * 1.18 | currency:'USD' }}</h4>
+</div>
+</div>
