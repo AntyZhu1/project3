@@ -7,6 +7,9 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+// import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
+import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 import { BestsellersComponent } from './components/bestsellers/bestsellers.component';
 import { AdvSearchComponent } from './components/adv-search/adv-search.component';
 import { BookClubComponent } from './components/book-club/book-club.component';
@@ -19,7 +22,6 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
 
->>>>>>> .theirs
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
+  {path: 'users', component: SearchByUsernameComponent},
   { path: 'bestSellers', component: BestsellersComponent },
  { path: "advancesearch", component: AdvSearchComponent },
 { path: "profile", component:ProfileComponent},
