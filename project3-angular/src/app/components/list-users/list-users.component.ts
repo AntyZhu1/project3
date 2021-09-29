@@ -22,5 +22,9 @@ export class ListUsersComponent implements OnInit {
   ngOnInit(): void {
   
   }
+  
+  sendFriendRequest(username : string)  {
+    
+  }
 
 }

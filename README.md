@@ -48,7 +48,7 @@ applicable in full stack development. As a group we ran through an Agile develop
 ## Contributors
 •Foster Van Doren
 •David Cedeño
-•Christy Caitlyn
+•Christy Catlin
 •Nicky Kayyarath
 •Brigitte McColl
 •Troy Morrow
