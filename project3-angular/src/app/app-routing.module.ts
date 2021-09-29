@@ -7,6 +7,7 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { BestsellersComponent } from './components/bestsellers/bestsellers.component';
 import { AdvSearchComponent } from './components/adv-search/adv-search.component';
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
@@ -29,12 +30,14 @@ const routes: Routes = [
   { path: 'details/:title/:author', component: BookDetailComponent},
   { path: 'detailed/:ISBN', component: BookDetailComponent},
   
+  { path: 'bestsellers', component: BestsellersComponent},
   // { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   // { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   // { path: 'products/:catName/:catId', component: SubCategoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
+  { path: 'bestSellers', component: BestsellersComponent },
  { path: "advancesearch", component: AdvSearchComponent },
 { path: "profile", component:ProfileComponent},
 <<<<<<< .mine
