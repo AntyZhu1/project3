@@ -13,7 +13,7 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class BookClubComponent implements OnInit {
 
-  books : any;
+  books : any[] =[];
   book: any;
   clubId: any;
   user : User = {
@@ -50,10 +50,18 @@ export class BookClubComponent implements OnInit {
     //   console.log(this.bookclubs)
     //   console.log(this.bookclubs[0].clubCurrentIsbn)
 
-    //   this.dataService.getBooksByISBN(this.bookclubs.clubCurrentIsbn).subscribe(data =>{
-    //     this.books = data;
-    //     console.log(this.books)
+    //   for (let index = 0; index < this.bookclubs.length; index++) {
+    //     this.dataService.getBooksByISBN(this.bookclubs[index].clubCurrentIsbn).subscribe(data =>{
+    //     this.bookclubs[index].bookCover =  data.items.volumeInfo.imageLinks.smallThumbnail;
+    //     this.bookclubs[index].bookTitle = data.items.volumeInfo.title;
+    //     this.bookclubs[index].bookAuthor = data.items.volumeInfo.authors;
+    //     this.bookclubs[index].bookPrice = data.items.saleInfo.listPrice.amount;
+
+    //     console.log(this.books[index])
     //   })
+        
+    //   }
+      
       
       
     // })
