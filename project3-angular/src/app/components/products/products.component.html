@@ -3,70 +3,128 @@
 
 <div>
     <div class="container-fluid">
-        <!-- <div class="row"> -->
-        <!-- 
-                <div class="col-2">
-                    <br>
-                    <br>
-                    <br>
-                    <aside>
-                <div class="alert alert-secondary" role="alert">
-                    <h4 class="alert-heading">Sort by:</h4>
-                    <select class="custom-select">
-                        <option selected>Open this select menu</option>
-                        <option value="Title">Title</option>
-                        <option value="Author">Author</option>
-                        <option value="Price">Price</option>
-                      </select>
-                  </div>
-            </aside>
-
-                </div> -->
+        
         <br>
 
         <div class="col-8 card" style="margin: auto;">
 
             <h1 class="text-white font-weight-bold bigger-text">Books</h1>
-            <!-- <div id="outer"> -->
-            <app-search></app-search>
-        </div>
-        <br><br>
+            <!-- search and sort form -->
+            <div>
 
-        <div class="col-8" style="margin: auto;">
-            <div class="scrollable card">
+                <div style="padding: 10px;">
+                    <div>
+                        <h3 style="color: white;">Sort by: </h3>
+                    </div>
+                
+                
+                    <select (change)="sortBy($event)" class="menu custom-select" name="sort" id="sort">
+                        <option value="Relevence">Relevence</option>
+                        <option value="1">Title A-Z</option>
+                        <option value="2">Title Z-A</option>
+                        <option value="3">Author A-Z</option>
+                        <option value="4">Author Z-A</option>
+                        <option value="5">Price High-Low</option>
+                        <option value="6">Price Low-High</option>
+                        
+                    </select>
+                   
+                </div>
+                <div style="padding: 5px; ">
+                    <div>
+                        <h3 style="color: white;">Search by: </h3>
+                    </div>
+                    <div style="float: left;">
+                    <form action="">
+                                <div class="form-group" style="float: left;">
+                                    <div style="margin: 5px; float: left;">
+                                        <label for="searchType" style="color: white;">Search Type</label>
+                                    </div>
+                                    <div class="inner" style="margin: 5px; float: left;">
+                                        <select class="form-control"
+                                            style="background-color: rgb(201, 161, 109); color: #49231c; font-weight: bold;" id="searchType" [(ngModel)]="searchType" name="searchType">
+                                            <option value="title">Title</option>
+                                            <option value="author">Author</option>
+                                            <option value="subject">Subject/Category</option>
+                                            <option value="isbn">ISBN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="float: left; margin: 5px;">
+                                    <input type="text" class="form-control" id="parameters" placeholder="Search" [(ngModel)]="search" name="search">
+                                </div>
+                                <div style="float: left; margin: 5px;">
+                                    <span class="inner"><button class="btn" id="search" (click)="newSearch()">Search</button></span>
+                
+                                </div>
+                            </form>
+                    </div>
+                
+                    <div style="margin: 5px; float: left;">
+                        <a class="nav-link btn" routerLink="/advancesearch">Advanced Search </a>
+                                          </div>
+                </div>
+                </div>
+            
+          
+        </div>
+       <!-- <br> -->
+       <br>
+      
+        <!-- buttons for pageination -->
+        <div class="row col-8" style="margin: auto; margin-bottom: 5px;">
+            <div class="div" style="margin-left: 75%;" >
+            <button class="btn" style="float: left;" (click)="Decrement()">Previous</button>
+            <p style="padding: 5px; background-color: #49231c; float: left; color: rgb(201, 161, 109)">Page: {{pageNumber}}</p>
+        <button class="btn" style="float: right;" (click)="Increment()">Next</button>
+            </div>
+        </div>
+                   
+        <div class="col-8 card" style="margin: auto;">
+            
+            <div class="scrollable card fixTableHead ">
+                <!-- <div class="scrollable card"> -->
+
                 <table class="table table-dark table-borderless tablesorter" id="booksTable">
 
                     <thead class="thead-dart">
-                        <tr>
-                            <th scope="col">Book Cover</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">ISBN</th>
-                            <th scope="col">Price</th>
+                        <tr class="text-center">
+                            <th class="headerbg">Book Cover</th>
+                            <th (click)="sortByTitle()" class="sort headerbg">Title</th>
+                            <th (click)="sortByAuthor()" class="sort headerbg">Author</th>
+                            <th class="headerbg">ISBN</th>
+                            <th (click)=" sortByPrice()" class="sort headerbg">Price</th>
+                            <th  class="headerbg"></th>
+                            <th  class="headerbg"></th>
                         </tr>
                     </thead>
+                    <!-- </table> -->
+           
+                    <!-- <div class="scrollable card"> -->
+                        <!-- <table class="table table-dark table-borderless tablesorter" id="booksTable"> -->
+                    
                     <tbody>
-                        <tr *ngFor="let book of items">
+                        <tr *ngFor="let book of items" class="text-center">
                             <!--Book list composed of search results + page number-->
                             <td ng-container *ngIf="book.volumeInfo.imageLinks == null; else elseImage">
-                                thumbnail unavailable</td>
+                                Image unavailable</td>
                             <ng-template #elseImage><img src="{{ book.volumeInfo.imageLinks.thumbnail }}"
                                     class="img-fluid img-thumbnail" width="200" height="500" alt="">
                             </ng-template>
 
                             <td class="col-title">{{ book.volumeInfo.title }}</td>
 
-                            <td class="col-author" ng-container *ngIf="book.volumeInfo.authors == null else elseBlock1">
-                                Author not found</td>
-                            <ng-template #elseBlock1>{{ book.volumeInfo.authors }}</ng-template>
+                            <td class="col-author">
+                                <ng-container *ngIf="book.volumeInfo.authors == null else elseBlock1">
+                                Author not found</ng-container>
+                            <ng-template #elseBlock1>{{ book.volumeInfo.authors }}</ng-template></td>
 
                             <td class="col-isbn" ng-container
-                                *ngIf="book.volumeInfo.industryIdentifiers == null; else elseIfOther">isbn not
-                                available</td>
+                                *ngIf="book.volumeInfo.industryIdentifiers == null; else elseIfOther">ISBN not available</td>
                             <ng-template #elseIfOther>
                                 <td class="col-isbn" ng-container
                                     *ngIf="book.volumeInfo.industryIdentifiers[0].type == 'OTHER'; else elseIf2">
-                                    isbn 13 not available</td>
+                                    ISBN not available</td>
                             </ng-template>
                             <ng-template #elseIf2>
                                 <td class="col-isbn" ng-container
@@ -81,14 +139,17 @@
                             <ng-template #elseBlock>isbn 13 is not available for this selection</ng-template>
 
 
-                            <td ng-container *ngIf="book.saleInfo == null; else elsePrice1">price unavailable
+                            <td ng-container *ngIf="book.saleInfo == null; else elsePrice1">Price Unavailable
                             </td>
                             <ng-template #elsePrice1>
                                 <td class="col-price"
-                                    *ngIf="book.saleInfo.saleability == 'NOT_FOR_SALE'; else elsePrice2">item
-                                    not for sale </td>
+                                    *ngIf="book.saleInfo.saleability == 'FREE'; else elsePrice2">FREE</td>
                             </ng-template>
                             <ng-template #elsePrice2>
+                                <td class="col-price"
+                                    *ngIf="book.saleInfo.saleability == 'NOT_FOR_SALE'; else elsePrice3">Out of Stock </td>
+                            </ng-template>
+                            <ng-template #elsePrice3>
                                 <td class="col-price" *ngIf="book.saleInfo.retailPrice.amount"> $ {{
                                     book.saleInfo.retailPrice.amount }} </td>
                             </ng-template>
@@ -96,7 +157,7 @@
 
 
                             <td>
-                                <button class="btn btn-info">Learn More</button>
+                                <button class="btn btn-info" (click)="learnMore(book)">Learn More</button>
 
                             </td>
                             <td>
@@ -105,14 +166,19 @@
                         </tr>
                     </tbody>
                 </table>
+                
             </div>
 
         </div>
-        <!-- <div class="col-3">
-            <br>
-        </div> -->
+<!-- buttons for pageination -->
+        <div class="row col-8" style="margin: auto;background-color: #49231c;">
+            <div class="div" style="margin-left: 40%;" >
+            <button class="btn" style="float: left;" (click)="Decrement()">Previous</button>
+            <p style="padding: 5px; background-color: #49231c; float: left; color: rgb(201, 161, 109)">Page: {{pageNumber}}</p>
+        <button class="btn" style="float: right;" (click)="Increment()">Next</button>
+            </div>
+         </div>
 
-        <!-- </div> -->
     </div>
 </div>
 <br>

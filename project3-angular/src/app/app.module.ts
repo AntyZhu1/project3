@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
+// import { NgpSortModule } from "ngp-sort-pipe";
 
 // routing module
 import { AppRoutingModule } from './app-routing.module';
@@ -19,12 +20,15 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReadlistComponent } from './components/readlist/readlist.component';
 
+
+
 import { ProductsComponent } from './components/products/products.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
-import { SearchComponent } from './components/search/search.component';
+import { AdvSearchComponent } from './components/adv-search/adv-search.component';
+
 
 
 @NgModule({
@@ -42,7 +46,8 @@ import { SearchComponent } from './components/search/search.component';
     BookDetailComponent,
     SidebarComponent,
     SortDirective,
-    SearchComponent
+    AdvSearchComponent
+
   ],
   imports: [
     BrowserModule,
@@ -51,8 +56,10 @@ import { SearchComponent } from './components/search/search.component';
     HttpClientModule,
     FormsModule,
     CommonModule
+
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
