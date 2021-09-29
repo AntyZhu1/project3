@@ -20,8 +20,6 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReadlistComponent } from './components/readlist/readlist.component';
 
-
-
 import { ProductsComponent } from './components/products/products.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
@@ -32,12 +30,10 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { BestsellersComponent } from './components/bestsellers/bestsellers.component';
 import { AdvSearchComponent } from './components/adv-search/adv-search.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
-=======
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
->>>>>>> remotes/origin/bookClub
+
 
 
 @NgModule({
@@ -54,21 +50,15 @@ import { BookClubUpdateComponent } from './components/book-club-update/book-club
     PageNotFoundComponent,
     BookDetailComponent,
     SidebarComponent,
-<<<<<<< HEAD
-ListUsersComponent
-<<<<<<< .mine
+    ListUsersComponent,
     SearchByUsernameComponent,
-    ListUsersComponent
-=======
-    ProfileComponent
-
->>>>>>> .theirs
-=======
+    ListUsersComponent,
+    ProfileComponent,
     SortDirective,
     BookClubComponent,
     BookClubCreateComponent,
     BookClubUpdateComponent,
->>>>>>> remotes/origin/bookClub
+
   ],
   imports: [
     BrowserModule,
