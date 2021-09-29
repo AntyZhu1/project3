@@ -48,7 +48,13 @@ export class BookClubComponent implements OnInit {
     // this.bookClubService.getAllBookClubByUserId(this.user.userId).subscribe(data =>{
     //   this.bookclubs = data;
     //   console.log(this.bookclubs)
+    //   console.log(this.bookclubs[0].clubCurrentIsbn)
 
+    //   this.dataService.getBooksByISBN(this.bookclubs.clubCurrentIsbn).subscribe(data =>{
+    //     this.books = data;
+    //     console.log(this.books)
+    //   })
+      
       
     // })
 
