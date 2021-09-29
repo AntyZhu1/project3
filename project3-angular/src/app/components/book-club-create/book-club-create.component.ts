@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IBookClub } from 'src/app/models/bookclub.model';
 import { BookclubService } from 'src/app/services/bookclub.service';
-import { User } from 'src/app/user/user';
-import { UserService } from 'src/app/user/user.service';
+import { User } from 'src/app/services/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-book-club-create',
@@ -18,7 +18,8 @@ export class BookClubCreateComponent implements OnInit {
     mobile: '',
     email: '',
     username: '',
-    password: ''
+    password: '',
+    about_me: ''
   };
   bookClub: IBookClub = {
     clubId: 0,

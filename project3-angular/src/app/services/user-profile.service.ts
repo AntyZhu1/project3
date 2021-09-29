@@ -62,4 +62,8 @@ export class UserProfileService {
   public getCurrentUserByUsernameAndPassword(username: string, password: string): Observable<User> {
     return this.http.get<User>(`${this.apiServerUrl}/user/user/${username}/${password}`)
   }
+
+  public getUsersByUsername(username: string): Observable<User> {
+    return this.http.get<User>(`${this.apiServerUrl}/user/search/${username}`)
+  }
 }

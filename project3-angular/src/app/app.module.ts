@@ -50,7 +50,6 @@ import { BookClubUpdateComponent } from './components/book-club-update/book-club
     PageNotFoundComponent,
     BookDetailComponent,
     SidebarComponent,
-    ListUsersComponent,
     SearchByUsernameComponent,
     ListUsersComponent,
     ProfileComponent,

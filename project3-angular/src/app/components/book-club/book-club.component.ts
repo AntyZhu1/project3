@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IBookClub } from 'src/app/models/bookclub.model';
 import { BookclubService } from 'src/app/services/bookclub.service';
 import { DataService } from 'src/app/services/data.service';
-import { User } from 'src/app/user/user';
-import { UserService } from 'src/app/user/user.service';
+import { User } from 'src/app/services/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-book-club',
@@ -23,7 +23,8 @@ export class BookClubComponent implements OnInit {
     mobile: '',
     email: '',
     username: '',
-    password: ''
+    password: '',
+    about_me: ''
   }
   bookclubs: any;
   bookclub : IBookClub = {
@@ -72,16 +73,16 @@ export class BookClubComponent implements OnInit {
     this.bookClubService.getBookClubByUserId(this.user.userId).subscribe(data =>{
       this.bookclub = data;
 
-      this.dataService.getBooksByISBN(this.bookclub.clubCurrentIsbn).subscribe(data =>{
-      this.book = data.items;
+      // this.dataService.getBooksByISBN(this.bookclub.clubCurrentIsbn).subscribe(data =>{
+      // this.book = data.items;
       console.log(this.book);
     })
-    })    
+    // })    
   }
 
-  updateBook(){
-    this.router.navigate(['/bookclub/', this.bookclub.clubId]);
-  }
+  // updateBook(){
+  //   this.router.navigate(['/bookclub/', this.bookclub.clubId]);
+  // }
 
   
 
