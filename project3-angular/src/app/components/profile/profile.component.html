@@ -1,0 +1,209 @@
+<div class="body">
+    <app-navbar></app-navbar>
+    <section class="row-section">
+        <div class="container">
+            <div class="row" style="text-shadow: 2px 2px #000000;">
+                <!-- User logged in -->
+                <h2 class="text-center text-light" *ngIf="userLoggedIn"><span>Profile of {{ currentUser.firstName }} {{
+                        currentUser.lastName }}</span> </h2>
+
+                <!-- User not logged in -->
+                <h2 class="text-center text-light" *ngIf="!userLoggedIn"><span></span></h2>
+            </div>
+
+            <!-- User not logged in, redirect to login page with button -->
+            <div *ngIf="!userLoggedIn">
+                <div class="col-md-10 offset-md-1 p-3 row-block scrollable">
+                    <ul id="sortable">
+                        <!-- Page where user is not logged in -->
+
+                        <div class="media" *ngIf="!userLoggedIn">
+
+                            <div class="media-body" style="text-align: center;">
+                                <h4>Please login to view your profile.</h4>
+                                <img class="linebreak" src="/assets/img/linebreakImg.png">
+                                <button class="btn btn-secondary" routerLink="/login">Login</button>
+
+                            </div>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- logic if user is logged in -->
+            <div *ngIf="userLoggedIn">
+
+                <!-- Change displayed page -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="changePage(0)">My Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="changePage(1)">My Reading List</a>
+                            </li>
+
+                        </ul>
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="changePage(2)">Search For User </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+
+                <div *ngIf="displayedPage == 0">
+                    <form action="" class="scrollable">
+
+                        <div class="container-fluid p-3  bg-light">
+                            <div *ngIf="!editingPage">
+                                <h1>My Profile</h1>
+                                <br>
+                                <br>
+                                <h4>Name</h4>
+                                <h5>{{ currentUser.firstName }} {{ currentUser.lastName }}</h5>
+                                <hr>
+                                <h4>Email</h4>
+                                <h5>{{ currentUser.email }}</h5>
+                                <hr>
+                                <h4>Mobile</h4>
+                                <h5>{{ currentUser.mobile }}</h5>
+                                <hr>
+                                <h3>About me</h3>
+                                <p>{{ currentUser.about_me }}</p>
+                                <button class="btn btn-secondary" (click)="editAboutMe()">Edit</button>
+                                <hr>
+                                <button class="btn btn-secondary" (click)="logout()">Logout</button>
+                            </div>
+
+                            <div *ngIf="editingPage">
+                                <div class="container">
+                                    <div class="media">
+
+                                        <div class="form-group">
+                                            <form #editForm="ngForm"
+                                                (submit)="saveEdits(firstName.value, lastName.value, email.value, mobile.value, about_me.value)">
+                                                <h1>Editing My Profile</h1>
+                                                <br>
+                                                <br>
+                                                <div class="form-group">
+                                                    <h4>First Name</h4>
+                                                    <input type="text" name="firstName" id="firstName" #firstName ngModel
+                                                        placeholder="{{ currentUser.firstName }}" required/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4>Last Name</h4>
+                                                    <input type="text" name="lastName" id="lastName" #lastName ngModel
+                                                        placeholder="{{ currentUser.lastName }}" required/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4>Email</h4>
+                                                    <input type="email" name="email" id="email" #email ngModel
+                                                        placeholder="{{ currentUser.email }}" required/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4>Mobile</h4>
+                                                    <input type="tel" name="mobile" id="mobile" #mobile ngModel
+                                                        placeholder="{{ currentUser.mobile }}" required/>
+                                                </div>
+
+                                                <div class="media">
+
+                                                    <div class="form-group">
+                                                        <label class="h3" for="about_me">About Me</label>
+                                                        <textarea class="form-control" name="about_me" id="about_me"
+                                                            placeholder="Tell us a little about you!" rows="15"
+                                                            cols="200" #about_me ngModel></textarea>
+
+                                                    </div>
+
+                                                </div>
+                                                <button class="btn btn-secondary" type="submit"
+                                                    [disabled]="!editForm.form.valid">Save</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+
+                <div *ngIf="displayedPage == 1">
+                    <div class="col-md-10 offset-md-1 my-3 row-block scrollable">
+                        <ul id="sortable">
+                            <li *ngFor="let readlist of readlists">
+
+                                <!-- User Page with a login and readlist -->
+                                <div class="media" *ngIf="userLoggedIn && userHasReadlist">
+                                    <div class="media-left align-self-center">
+                                        <img src="{{ readlist.book.image }}" alt="Book cover image">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>{{ readlist.book.title }}</h4>
+                                        <h6>Author: {{ readlist.book.author }}</h6>
+                                        <p>{{ readlist.book.summary }}</p>
+                                    </div>
+                                    <div class="media-right align-self-center">
+                                        <button (click)="removeBook(readlist)" id="remove">Remove</button>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- User page with a login but no readlist -->
+                            <div class="media" *ngIf="userLoggedIn && !userHasReadlist">
+                                <div class="media-body" style="text-align: center;">
+                                    <h4>You can add books to your readlist from the store page!</h4>
+                                    <img class="linebreak" src="/assets/img/linebreakImg.png">
+                                    <button class="btn btn-secondary" routerLink="/products">Go to Products</button>
+
+                                </div>
+
+                            </div>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div *ngIf="displayedPage == 2">
+
+                    <div class="container-fluid bg-light p-3 scrollable-container">
+                        <form class="form-inline">
+                            <h4>Search for User</h4>
+                            <div class="form-group mx-sm-3 mb-2">
+
+                                <label for="serachForUser" class="sr-only">Search For User</label>
+                                <input type="text" class="form-control" id="serachForUser" placeholder="Enter User">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Search</button>
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </section>
+</div>

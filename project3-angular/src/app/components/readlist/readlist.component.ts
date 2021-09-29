@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadlistService } from 'src/app/services/readlist.service';
 import { IReadlist } from 'src/app/models/readlist.model';
-import { UserService } from 'src/app/user/user.service';
-import { User } from 'src/app/user/user';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/services/user';
 
 @Component({
   selector: 'app-readlist',
@@ -20,7 +20,8 @@ export class ReadlistComponent implements OnInit {
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   constructor(private readlistService: ReadlistService,

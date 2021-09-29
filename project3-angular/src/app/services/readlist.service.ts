@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IReadlist } from '../models/readlist.model';
-import { UserService } from '../user/user.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/services/user';
 import { BooksService } from './books.service';
 
 @Injectable({

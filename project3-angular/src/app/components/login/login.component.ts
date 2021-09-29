@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user/user.service';
-import { User } from 'src/app/user/user';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/services/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,17 +17,8 @@ export class LoginComponent implements OnInit {
     mobile: "",
     email: "",
     username: "",
-    password: ""
-  };
-
-  public user2:User = {
-    userId: 0,
-    firstName : "",
-    lastName: "",
-    mobile: "",
-    email: "",
-    username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
 
   constructor(private userService: UserService, private route:Router) { }

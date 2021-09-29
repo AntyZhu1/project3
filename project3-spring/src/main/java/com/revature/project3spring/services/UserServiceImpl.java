@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService{
 		userDB.setMobile(user.getMobile());
 		userDB.setUsername(user.getUsername());
 		userDB.setPassword(user.getPassword());
+		userDB.setAbout_me(user.getAbout_me());
 		return repository.save(userDB);
 	}
 

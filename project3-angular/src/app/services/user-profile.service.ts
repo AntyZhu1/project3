@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './user';
+import { UserProfile } from './user-profile';
 import { environment } from 'src/environments/environment';
+import {User} from './user'
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserProfileService {
+
   private apiServerUrl = environment.apiBaseUrl;
   private currentUser:User = {
     userId: 0,
@@ -16,8 +18,20 @@ export class UserService {
     mobile: "",
     email: "",
     username: "",
-    password: ""
+    password: "",
+    about_me: ""
   };
+
+  private currentProfile:UserProfile = {
+    userId: 0,
+    firstName : "",
+    lastName: "",
+    mobile: "",
+    email: "",
+    username: "",
+    password: "",
+    aboutMe: ""
+  }
 
   public setCurrentUser(user: User) {
     this.currentUser = user;
@@ -48,9 +62,4 @@ export class UserService {
   public getCurrentUserByUsernameAndPassword(username: string, password: string): Observable<User> {
     return this.http.get<User>(`${this.apiServerUrl}/user/user/${username}/${password}`)
   }
-
-  public getUsersByUsername(username: string): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/user/search/${username}`)
-  }
-
 }
