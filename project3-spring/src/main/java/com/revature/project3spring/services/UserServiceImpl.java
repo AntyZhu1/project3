@@ -62,4 +62,10 @@ public class UserServiceImpl implements UserService{
 		User user = repository.findByUsernameAndPassword(username, password);
 		return user;
 	}
+
+	//Searches for all users whos username contains the given string
+	@Override
+	public List<User> getAllUsersByUsername(String username) {
+		return repository.findAllUserByUsernameContaining(username);
+	}
 }

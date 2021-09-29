@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FriendshipServiceImpl implements FriendshipService{
+public class FriendshipServiceImpl implements FriendshipService {
 
     @Autowired
     private FriendshipRepository repository;
-
 
     @Override
     public Friendship saveFriendship(Friendship friendship) {
@@ -25,23 +24,27 @@ public class FriendshipServiceImpl implements FriendshipService{
     }
 
     @Override
-    public List<Friendship> getFriendshipsByUsername(String username1) {
-        return null;
+    public  List<Friendship> listAllUsersFriends(String username1) {
+
+        List<Friendship> userFriendships = repository.findAll();
+        userFriendships.removeIf(userFriendship -> (!userFriendship.getUsername2().equals(username1)));
+        return userFriendships;
     }
 
     @Override
-    public Friendship approveFriendship(long friendship_id, Friendship friendship) {
-        Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus("approved");
+    public Friendship approveFriendship( Friendship friendship) {
 
-        return repository.save(friendshipDB);
+        friendship.setStatus("Approved");
+
+        return repository.save(friendship);
     }
 
     @Override
-    public Friendship declineFriendship(long friendship_id, Friendship friendship) {
-        Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus("declined");
+    public Friendship declineFriendship(Friendship friendship) {
 
-        return repository.save(friendshipDB);
+        friendship.setStatus("Declined");
+
+        return repository.save(friendship);
     }
+
 }

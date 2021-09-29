@@ -9,8 +9,12 @@ import java.util.List;
 public interface FriendshipService {
 
     Friendship saveFriendship(Friendship friendship);
+
     List<Friendship> getAllFriendships();
-    List<Friendship> getFriendshipsByUsername(String username1);
-    Friendship approveFriendship(long friendship_id, Friendship friendship);
-    Friendship declineFriendship(long friendship_id, Friendship friendship);
+
+    List<Friendship> listAllUsersFriends(String username1);
+
+    Friendship approveFriendship( Friendship friendship);
+
+    Friendship declineFriendship( Friendship friendship);
 }

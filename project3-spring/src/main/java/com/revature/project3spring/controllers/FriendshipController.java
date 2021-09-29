@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class FriendshipController {
@@ -15,22 +14,29 @@ public class FriendshipController {
     FriendshipService service;
 
     @GetMapping("/friendship")
-    public List<Friendship> getAllFriendships()	{
+    public List<Friendship> getAllFriendships() {
         return service.getAllFriendships();
     }
 
+    @GetMapping("/usersfriends/{username}")
+    public List<Friendship> listAllUsersFriends(@PathVariable("username") String username1) {
+        return service.listAllUsersFriends(username1);
+    }
+
+
     @PostMapping("/friendship/add")
-    public Friendship saveFriendship(@RequestBody Friendship friendship)	{
+
+    public Friendship saveFriendship(@RequestBody Friendship friendship) {
         return service.saveFriendship(friendship);
     }
 
-    @PutMapping("/friendship/approve/{id}")
-    public Friendship approveFriendship(@PathVariable("id") long friendship_id, @RequestBody Friendship friendship)	{
-        return service.approveFriendship(friendship_id, friendship);
+    @PutMapping("/friendship/approve")
+    public Friendship approveFriendship(@RequestBody Friendship friendship) {
+        return service.approveFriendship(friendship);
     }
 
-    @PutMapping("/friendship/decline/{id}")
-    public Friendship declineFriendship(@PathVariable("id") long friendship_id, @RequestBody Friendship friendship)	{
-        return service.declineFriendship(friendship_id, friendship);
+    @PutMapping("/friendship/decline")
+    public Friendship declineFriendship(@RequestBody Friendship friendship) {
+        return service.declineFriendship(friendship);
     }
 }
