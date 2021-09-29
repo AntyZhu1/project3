@@ -47,4 +47,14 @@ public class BookClubServiceImpl implements BookClubService {
 		repository.deleteById(clubId);
 	}
 
+	@Override
+	public BookClub getBookClubByUserId(long userId) {
+		return repository.findBookClubByUserId(userId);
+	}
+
+	@Override
+	public void updateISBN(long ISBN, long clubId) {
+		repository.updateISBN(ISBN, clubId);
+	}
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBookClub } from 'src/app/models/bookclub.model';
 import { BookclubService } from 'src/app/services/bookclub.service';
 import { DataService } from 'src/app/services/data.service';
@@ -25,7 +25,7 @@ export class BookClubComponent implements OnInit {
     username: '',
     password: ''
   }
-  bookclubs: IBookClub[] = [];
+  bookclubs: any;
   bookclub : IBookClub = {
     clubId: 0,
     clubCreatorId: 0,
@@ -34,7 +34,8 @@ export class BookClubComponent implements OnInit {
   }
 
   constructor(private dataService: DataService, private route: ActivatedRoute,
-    private bookClubService: BookclubService, private userService: UserService) {
+    private bookClubService: BookclubService, private userService: UserService,
+    private router: Router) {
       this.user = this.userService.getCurrentUser();
       console.log(this.user.userId);
    }
@@ -44,17 +45,17 @@ export class BookClubComponent implements OnInit {
       this.clubId = params.id
     })
 
-    this.bookClubService.getAllUserBookClubByUserId(this.user.userId).subscribe(data =>{
-      this.bookclubs = data;
-      console.log(this.bookclubs)
+    // this.bookClubService.getAllBookClubByUserId(this.user.userId).subscribe(data =>{
+    //   this.bookclubs = data;
+    //   console.log(this.bookclubs)
 
       
-    })
+    // })
 
     //returns a book object by the ISBN
     //Book API returns JSON with an array, so you have to use
     //data.items to get the actual book
-    this.bookClubService.getBookClub(34).subscribe(data =>{
+    this.bookClubService.getBookClubByUserId(this.user.userId).subscribe(data =>{
       this.bookclub = data;
 
       this.dataService.getBooksByISBN(this.bookclub.clubCurrentIsbn).subscribe(data =>{
@@ -62,10 +63,10 @@ export class BookClubComponent implements OnInit {
       console.log(this.book);
     })
     })    
+  }
 
-    
-    
-
+  updateBook(){
+    this.router.navigate(['/bookclub/', this.bookclub.clubId]);
   }
 
   

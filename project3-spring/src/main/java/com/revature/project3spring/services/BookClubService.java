@@ -14,4 +14,6 @@ public interface BookClubService {
 	List<BookClub> getAllBookClub();
 	List<BookClub> getAllBookClubByBookClubClubNameContaining(String name);
 	void deleteBookClub(long clubId);
+	BookClub getBookClubByUserId(long userId);
+	void updateISBN(long ISBN, long clubId);
 }

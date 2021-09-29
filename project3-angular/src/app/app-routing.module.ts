@@ -9,6 +9,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
+import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   // { path: '**', component: PageNotFoundComponent }
   {path: 'bookclub', component: BookClubComponent},
   {path: 'bookclub/create', component: BookClubCreateComponent},
+  {path: 'bookclub/:clubId', component: BookClubUpdateComponent},
   {path: 'bookclub/:id', component: BookClubComponent},
   { path: '**', component: PageNotFoundComponent },
 ];

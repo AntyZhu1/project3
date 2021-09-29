@@ -2,6 +2,7 @@ package com.revature.project3spring.controllers;
 
 import java.util.List;
 
+import com.revature.project3spring.entities.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,5 +57,19 @@ public class BookClubController {
 	@DeleteMapping("/bookclub/{id}")
 	public void deleteBookClub(@PathVariable("id") long id) {
 		service.deleteBookClub(id);
+	}
+
+	@GetMapping("/bookclub/user/{id}")
+	public BookClub getBookClubByUserId(@PathVariable("id") long userId){
+		return service.getBookClubByUserId(userId);
+	}
+
+	@PutMapping("/bookclub/{clubId}/{ISBN}")
+	public void updateISBN(@PathVariable long clubId,
+						   @PathVariable String ISBN){
+		System.out.println(clubId);
+		System.out.println(ISBN);
+		long ISBNnum = Long.parseLong(ISBN);
+		service.updateISBN(ISBNnum, clubId);
 	}
 }
