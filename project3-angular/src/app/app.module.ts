@@ -57,6 +57,8 @@ import { BookClubUpdateComponent } from './components/book-club-update/book-club
     BookClubComponent,
     BookClubCreateComponent,
     BookClubUpdateComponent,
+    AdvSearchComponent, 
+    BestsellersComponent,
 
   ],
   imports: [
