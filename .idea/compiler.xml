@@ -13,8 +13,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Discovery" target="16" />
-      <module name="Gateway" target="16" />
+      <module name="Discovery" target="11" />
+      <module name="Gateway" target="11" />
       <module name="project3-spring" target="16" />
     </bytecodeTargetLevel>
   </component>
