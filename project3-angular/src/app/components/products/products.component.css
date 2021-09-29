@@ -1,7 +1,7 @@
 .body {
     width: 100%;
     background-image: url("/assets/img/photo-1507842217343-583bb7270b66.jfif");
-    position: fixed;
+    /* position: fixed; */
     padding: 0;
     margin: 0;
     top: 0;
@@ -36,9 +36,10 @@ h3 {
     font: bold;
 }
 
-#outer {
-    width: 1000px;
-}
+/* #outer {
+    min-width: 1000px;
+    
+} */
 
 .card {
     background-color: #49231c;
@@ -49,17 +50,43 @@ h3 {
 }
 
 .btn {
-    color: white;
-    background-color: black;
-    border-color: white;
+    background-color: rgb(201, 161, 109); 
+    color: #49231c;
+    font-weight: bold;
 }
 
 .btn:hover {
-    background-color: gray;
+    background-color: rgb(248, 233, 221);
 }
 
 .scrollable {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 750px;
+    min-height: 750px;
 }
+
+.menu{
+    background-color: rgb(201, 161, 109); 
+    color: #49231c;
+    font-weight: bold;
+}
+
+.fixTableHead {
+    overflow-y: auto;
+    height: 110px;
+  }
+  .fixTableHead thead th {
+    position: sticky;
+    top: 0;
+    
+  }
+
+  .sort:hover{
+      background-color: rgb(201, 161, 109); 
+      /* color: #49231c; */
+      cursor: pointer
+  }
+
+  .headerbg {
+    background-color: #49231c;
+  }

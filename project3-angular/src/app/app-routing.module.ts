@@ -7,6 +7,7 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AdvSearchComponent } from './components/adv-search/adv-search.component';
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';<<<<<<< .mine
@@ -23,13 +24,18 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductsComponent},
-  { path: 'products/:ISBN', component: BookDetailComponent},
+  { path: 'products/:search/:searchType/:pageNumber', component: ProductsComponent},
+  { path: 'products/:search/:searchType', component: ProductsComponent},
+  { path: 'details/:title/:author', component: BookDetailComponent},
+  { path: 'detailed/:ISBN', component: BookDetailComponent},
+  
   // { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   // { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   // { path: 'products/:catName/:catId', component: SubCategoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
+ { path: "advancesearch", component: AdvSearchComponent },
 { path: "profile", component:ProfileComponent},
 <<<<<<< .mine
 <<<<<<< .mine
