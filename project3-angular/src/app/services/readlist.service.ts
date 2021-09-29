@@ -11,7 +11,7 @@ import { BooksService } from './books.service';
     providedIn: 'root'
 })
 export class ReadlistService {
-    private BASEURL = "http://localhost:8080/"
+    private BASEURL = "http://localhost:9031/"
     private ENDPOINTS = {
         READLIST: "readlist"
     }

@@ -1,7 +1,8 @@
 package com.revature.project3spring.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -13,16 +14,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder()
-public class Book {
+@Builder
+public class BookClub {
 	@Id
-	private Long isbn;
-	private String title;
-	private String author;
-
-	@Column(length = 3000)
-	private String summary;
-	private String image;
-	private double price;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long clubId;
+	private long clubCreatorId;
+	private long clubCurrentIsbn;
+	private String clubName;
 }

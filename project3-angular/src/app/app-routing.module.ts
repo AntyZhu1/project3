@@ -7,10 +7,17 @@ import { ReadlistComponent } from './components/readlist/readlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { BookClubComponent } from './components/book-club/book-club.component';
+import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
+import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';<<<<<<< .mine
 // import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+=======
+import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
+import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
+
+>>>>>>> .theirs
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch:'full' },
@@ -23,6 +30,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'readlist', component: ReadlistComponent },
+{ path: "profile", component:ProfileComponent},
+<<<<<<< .mine
 <<<<<<< .mine
   // { path: '**', component: PageNotFoundComponent },
 =======
@@ -32,6 +41,17 @@ const routes: Routes = [
   {path: 'users/:Username', component: ListUsersComponent},
  { path: "profile", component:ProfileComponent},
   { path: '**', component: PageNotFoundComponent }
+=======
+  // { path: '**', component: PageNotFoundComponent }
+  {path: 'bookclub', component: BookClubComponent},
+  {path: 'bookclub/create', component: BookClubCreateComponent},
+  {path: 'bookclub/:clubId', component: BookClubUpdateComponent},
+  {path: 'bookclub/:id', component: BookClubComponent},
+  { path: '**', component: PageNotFoundComponent },
+
+
+
+>>>>>>> .theirs
 ];
 
 @NgModule({

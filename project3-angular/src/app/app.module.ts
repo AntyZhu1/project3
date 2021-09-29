@@ -23,9 +23,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
+<<<<<<< HEAD
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+=======
+import { BookClubComponent } from './components/book-club/book-club.component';
+import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
+import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
+>>>>>>> remotes/origin/bookClub
 
 
 @NgModule({
@@ -42,6 +48,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     PageNotFoundComponent,
     BookDetailComponent,
     SidebarComponent,
+<<<<<<< HEAD
 ListUsersComponent
 <<<<<<< .mine
     SearchByUsernameComponent,
@@ -50,6 +57,12 @@ ListUsersComponent
     ProfileComponent
 
 >>>>>>> .theirs
+=======
+    SortDirective,
+    BookClubComponent,
+    BookClubCreateComponent,
+    BookClubUpdateComponent,
+>>>>>>> remotes/origin/bookClub
   ],
   imports: [
     BrowserModule,

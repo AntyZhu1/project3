@@ -28,8 +28,10 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.books = this.bookService.getBooks();
-    this.bookService.getAllBooks().subscribe((data) =>
-      this.allBooks = data);
+    this.bookService.getAllBooks().subscribe((data) =>{
+      this.allBooks = data;
+      console.log(this.allBooks);
+    });
   }
 
   public addBook(book: any) {

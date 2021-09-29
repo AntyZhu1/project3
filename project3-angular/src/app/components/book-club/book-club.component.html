@@ -1,0 +1,48 @@
+
+<div class="body">
+<app-navbar></app-navbar> 
+<br>
+    <div>
+        <div class="container center">
+            <div class="row">
+                <div class="col-8">
+                    <div class="scrollable card">
+                        <h1 class="text-white font-weight-bold bigger-text">{{bookclub.clubName}} </h1>
+                        <table class="table table-dark table-borderless tablesorter" id="booksTable">
+                            <thead class="thead dark">
+                                <tr>
+                                    <!-- <td>Club Name</td> -->
+                                    <td>Book Cover</td>
+                                    <td>Title</td>
+                                    <td>Author</td>
+                                    <td>ISBN</td>
+                                    <td>Price</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!-- Book is an array of 1 so we have to use book[0]
+                                    to get the properties -->
+                                    <td><img src="{{book[0].volumeInfo.imageLinks.smallThumbnail}}" alt=""></td>
+                                    <td>{{book[0].volumeInfo.title}}</td>
+                                    <td>{{book[0].volumeInfo.authors}}</td>
+                                    <td>{{book[0].volumeInfo.industryIdentifiers[0].identifier}}</td>
+                                    <td>{{book[0].saleInfo.listPrice.amount | currency}}</td>
+                                </tr>
+                                <!-- <tr *ngFor="let club of bookclubs">
+                                    <td>{{club.bookClub.clubName}}</td>
+                                    <td>{{club.bookClub.bookCover}}</td>
+
+                                </tr> -->
+                            </tbody>
+                            
+                        </table>
+                        <button class="btn btn-primary" (click)="updateBook()">Update Book</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
