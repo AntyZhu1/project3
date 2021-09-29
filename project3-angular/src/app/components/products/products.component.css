@@ -1,6 +1,6 @@
 .body {
     width: 100%;
-    background-image: url("/assets/img/photo-1507842217343-583bb7270b66.jfif");
+    background-image: url("src/assets/img/photo-1507842217343-583bb7270b66.jfif");
     /* position: fixed; */
     padding: 0;
     margin: 0;
@@ -33,12 +33,12 @@ h3 {
 .inner {
     display: inline-block;
     color: white;
-    font: bold;
+    font-weight: bold;
 }
 
 /* #outer {
     min-width: 1000px;
-    
+
 } */
 
 .card {
@@ -50,7 +50,7 @@ h3 {
 }
 
 .btn {
-    background-color: rgb(201, 161, 109); 
+    background-color: rgb(201, 161, 109);
     color: #49231c;
     font-weight: bold;
 }
@@ -66,7 +66,7 @@ h3 {
 }
 
 .menu{
-    background-color: rgb(201, 161, 109); 
+    background-color: rgb(201, 161, 109);
     color: #49231c;
     font-weight: bold;
 }
@@ -78,11 +78,11 @@ h3 {
   .fixTableHead thead th {
     position: sticky;
     top: 0;
-    
+
   }
 
   .sort:hover{
-      background-color: rgb(201, 161, 109); 
+      background-color: rgb(201, 161, 109);
       /* color: #49231c; */
       cursor: pointer
   }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 // import { NgpSortModule } from "ngp-sort-pipe";
 
 // routing module
@@ -33,6 +33,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
+import {AddToWishlistComponent} from "./components/add-to-wishlist/add-to-wishlist.component";
+import {SearchComponent} from "./components/search/search.component";
 
 
 
@@ -57,6 +59,10 @@ import { BookClubUpdateComponent } from './components/book-club-update/book-club
     BookClubComponent,
     BookClubCreateComponent,
     BookClubUpdateComponent,
+    AddToWishlistComponent,
+    AdvSearchComponent,
+    BestsellersComponent,
+    SearchComponent
 
   ],
   imports: [

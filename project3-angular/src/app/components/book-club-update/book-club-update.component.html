@@ -1,6 +1,6 @@
 
 <div class="body">
-    <app-navbar></app-navbar> 
+    <app-navbar></app-navbar>
     <br>
         <div>
             <div class="container center">
@@ -10,18 +10,17 @@
                             <h1 class="text-white font-weight-bold bigger-text">Update Book For Book Club</h1>
                             <form #updateForm="ngForm" (submit)="onClickSubmit(bookISBN.value)">
                                 <div class="form-group">
-                                  <label for="bookISBN">Enter the ISBN</label>
+                                  <label for="bookISBNnum">Enter the ISBN</label>
                                   <input type="text" class="form-control" name="bookISBN" #bookISBN ngModel>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
                         </div>
-    
+
                     </div>
                 </div>
-    
+
             </div>
         </div>
 </div>
 
-    

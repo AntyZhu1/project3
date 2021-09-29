@@ -28,7 +28,7 @@ public class Friendship {
     private String status;
     private Date date;
     
-// could'nt get posting without adding the below
+// couldn't get posting without adding the below
     
 	public Friendship() {
 		super();
