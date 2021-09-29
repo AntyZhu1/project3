@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<!-- <div style="background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(https://npr.brightspotcdn.com/dims4/default/57802ac/2147483647/strip/true/crop/5616x3744+0+0/resize/880x587!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F61%2Fcd%2F6f68d7354b678bdc5514ef4858a9%2Fshutterstock-108584921.jpg)"
+    class="holder bg"> -->
+<div class="container">
+   
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let friend of friends">
+                <td>{{friend.username1}}</td>
+                <td>{{friend.status}}</td>
+                <td >      <a (click)="approveFriendRequest(friend)" class="btn btn-link">Approve Friend Request</a>
+                    <a (click)="declineFriendRequest(friend)" class="btn btn-link">Decline Friend Request</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+  
+       
+   
+
+<!-- </div> -->
+</div>  

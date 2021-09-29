@@ -25,6 +25,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SortDirective } from './directive/sort.directive';
 import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 
 
 
@@ -44,7 +45,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     SidebarComponent,
     SortDirective,
     SearchByUsernameComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    FriendsListComponent
   ],
   imports: [
     BrowserModule,

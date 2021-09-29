@@ -1,0 +1,27 @@
+.container{
+    padding-top: 10px;
+}
+
+.bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+}
+
+.holder {
+    min-height: 100vh;
+}
+
+.card {
+    background: #49231c;
+    color: #ffffff;
+}
+
+.btn{
+    color: white;
+    background-color: black;
+}
+
+.btn:hover {
+    background-color: gray;
+}

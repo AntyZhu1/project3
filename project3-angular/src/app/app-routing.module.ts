@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 // import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   // { path: '**', component: PageNotFoundComponent },
   {path: 'users', component: SearchByUsernameComponent},
   {path: 'users/:Username', component: ListUsersComponent},
+  {path: 'usersfriends/:Username', component: FriendsListComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
