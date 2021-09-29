@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="input">
+        <form #loginForm="ngForm" (submit)="onClick(username.value)">
+            <div class="form-group">
+                <label class="label">Search For User</label>
+                <input type="text" name="username" id="username" #username ngModel class="form-control"
+                    placeholder="Enter Username" required />
+            </div>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+</div>
