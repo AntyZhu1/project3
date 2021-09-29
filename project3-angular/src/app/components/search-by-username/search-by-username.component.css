@@ -3,6 +3,7 @@
 .label {
     text-align: left;
     color: black;
+    font: bold;
 }
 
 .btn{
@@ -15,5 +16,5 @@
 }
 
 .input{
-   float: right;
+   float: middle;
 }
