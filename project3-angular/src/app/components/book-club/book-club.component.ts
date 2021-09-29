@@ -80,9 +80,9 @@ export class BookClubComponent implements OnInit {
     // })    
   }
 
-  // updateBook(){
-  //   this.router.navigate(['/bookclub/', this.bookclub.clubId]);
-  // }
+  updateBook(){
+    this.router.navigate(['/bookclub/', this.bookclub.clubId]);
+  }
 
   
 
