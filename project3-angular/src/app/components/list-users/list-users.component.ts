@@ -25,11 +25,11 @@ export class ListUsersComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UserProfileService, private friendshipService: FriendshipService) {
     this.searchString = route.snapshot.paramMap.get('Username');
     console.log(this.searchString);
-    this.users = this.userService.getUsersByUsername(this.searchString).subscribe((data) => {this.users = data});
+
   }
 
   ngOnInit(): void {
-
+    this.userService.getUsersByUsername(this.searchString).subscribe((data) => {this.users = data});
   }
 
   sendFriendRequest(username : string)  {
