@@ -35,7 +35,7 @@ import { BookClubCreateComponent } from './components/book-club-create/book-club
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
 import {AddToWishlistComponent} from "./components/add-to-wishlist/add-to-wishlist.component";
 import {SearchComponent} from "./components/search/search.component";
-
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 
 
 @NgModule({
@@ -62,7 +62,8 @@ import {SearchComponent} from "./components/search/search.component";
     AddToWishlistComponent,
     AdvSearchComponent,
     BestsellersComponent,
-    SearchComponent
+    SearchComponent,
+    FriendsListComponent
 
   ],
   imports: [

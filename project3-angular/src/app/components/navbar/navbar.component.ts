@@ -8,9 +8,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  button() {
+    this.router.navigate(['usersfriends', this.userService.getCurrentUser().username ])
+ 
+ }
 }

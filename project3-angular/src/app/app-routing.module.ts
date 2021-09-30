@@ -15,6 +15,7 @@ import { AdvSearchComponent } from './components/adv-search/adv-search.component
 import { BookClubComponent } from './components/book-club/book-club.component';
 import { BookClubCreateComponent } from './components/book-club-create/book-club-create.component';
 import { BookClubUpdateComponent } from './components/book-club-update/book-club-update.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
 // import { SearchByUsernameComponent } from './components/search-by-username/search-by-username.component';
 
 
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'bookclub/create', component: BookClubCreateComponent},
   {path: 'bookclub/:clubId', component: BookClubUpdateComponent},
   {path: 'bookclub/:id', component: BookClubComponent},
+  {path: 'usersfriends/:Username', component: FriendsListComponent},
   { path: '**', component: PageNotFoundComponent }
 
 

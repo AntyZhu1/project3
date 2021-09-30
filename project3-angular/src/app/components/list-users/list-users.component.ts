@@ -14,6 +14,13 @@ export class ListUsersComponent implements OnInit {
 
   public users: any;
 
+  public friendship: Friendship = {
+    friendship_Id: 0,
+    username1: "",
+    username2: "",
+    status: "Pending"
+  };
+
   constructor(private route: ActivatedRoute, private userService: UserProfileService, private friendshipService: FriendshipService) { 
     this.searchString = route.snapshot.paramMap.get('Username');
     console.log(this.searchString);
@@ -25,7 +32,11 @@ export class ListUsersComponent implements OnInit {
   }
   
   sendFriendRequest(username : string)  {
-    this.friendshipService.savefriendship(this.userService.getCurrentUser().username, username);
+    this.friendship.username1 = this.userService.getCurrentUser().username;
+    this.friendship.username2 = username;
+    this.friendShip.savefriendship(this.friendship).subscribe((data) => {this.friendship = data; console.log("friend added")});
+  
+    
   }
 
 }

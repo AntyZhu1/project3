@@ -12,8 +12,18 @@ export class FriendshipService {
 
   constructor(private http: HttpClient) { }
 
-savefriendship(username1:any, username2:any): Observable<Friendship> {
-    return this.http.get<Friendship>(`${this.apiServerUrl}/user`)
+  public savefriendship(friendship:Friendship): Observable<Friendship> {
+    return this.http.post<Friendship>(`${this.apiServerUrl}/friendship/add`,friendship)
+  }
+  public listAllUsersFriends(username: any): Observable<Friendship[]>{
+    return this.http.get<Friendship[]>(`${this.apiServerUrl}/usersfriends/${username}`)
   }
 
+  public approveFriendship( friendship: Friendship): Observable<Friendship>{
+    return this.http.put<Friendship>(`${this.apiServerUrl}/friendship/approve`, friendship)
+  }
+
+  public declineFriendship( friendship: Friendship): Observable<Friendship>{
+    return this.http.put<Friendship>(`${this.apiServerUrl}/friendship/decline`, friendship)
+  }
 }
