@@ -12,7 +12,7 @@ export class FriendshipService {
 
   constructor(private http: HttpClient) { }
 
-  public savefriendship(friendship:Friendship): Observable<Friendship> {
+  public saveFriendship(friendship:Friendship): Observable<Friendship> {
     return this.http.post<Friendship>(`${this.apiServerUrl}/friendship/add`,friendship)
   }
   public listAllUsersFriends(username: any): Observable<Friendship[]>{

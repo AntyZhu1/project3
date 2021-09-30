@@ -3,6 +3,7 @@ package com.revature.project3spring.controllers;
 import com.revature.project3spring.entities.Friendship;
 import com.revature.project3spring.services.FriendshipService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 @RestController
 public class FriendshipController {
 
+
+    @Qualifier("friendshipServiceImpl")
     @Autowired
     FriendshipService service;
 
@@ -31,12 +34,12 @@ public class FriendshipController {
     }
 
     @PutMapping("/friendship/approve")
-    public Friendship approveFriendship(@RequestBody Friendship friendship) {
-        return service.approveFriendship(friendship);
+    public Friendship approveFriendship(@PathVariable("friendship_Id") long friendship_Id ,@RequestBody Friendship friendship) {
+        return service.approveFriendship(friendship_Id,friendship);
     }
 
     @PutMapping("/friendship/decline")
-    public Friendship declineFriendship(@RequestBody Friendship friendship) {
-        return service.declineFriendship(friendship);
+    public Friendship declineFriendship(@PathVariable("friendship_Id") long friendship_Id ,@RequestBody Friendship friendship) {
+        return service.declineFriendship(friendship_Id ,friendship);
     }
 }

@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Discovery/Discovery.iml" filepath="$PROJECT_DIR$/Discovery/Discovery.iml" />
       <module fileurl="file://$PROJECT_DIR$/Gateway/Gateway.iml" filepath="$PROJECT_DIR$/Gateway/Gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gateway/cloud-gateway.iml" filepath="$PROJECT_DIR$/Gateway/cloud-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/project3.iml" filepath="$PROJECT_DIR$/.idea/project3.iml" />
       <module fileurl="file://$PROJECT_DIR$/project3-spring/project3-spring.iml" filepath="$PROJECT_DIR$/project3-spring/project3-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Discovery/service-registry.iml" filepath="$PROJECT_DIR$/Discovery/service-registry.iml" />
     </modules>
   </component>
 </project>

@@ -25,8 +25,13 @@ public class FriendshipServiceImpl implements FriendshipService {
     public List<Friendship> getAllFriendships() {
         return repository.findAll();
     }
-    
-	@Override
+
+    @Override
+    public List<Friendship> listAllUsersFriends(String username1) {
+        return null;
+    }
+
+    @Override
     public Friendship declineFriendship(long friendship_id, Friendship friendship) {
         Friendship friendshipDB = repository.getById(friendship_id);
         friendshipDB.setStatus("declined");

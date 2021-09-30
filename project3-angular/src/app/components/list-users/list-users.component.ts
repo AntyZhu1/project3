@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserProfileService } from 'src/app/services/user-profile.service'
 import { FriendshipService } from 'src/app/friendship/friendship.service'
+import {Friendship} from "../../friendship/friendship";
 
 @Component({
   selector: 'app-list-users',
@@ -21,22 +22,22 @@ export class ListUsersComponent implements OnInit {
     status: "Pending"
   };
 
-  constructor(private route: ActivatedRoute, private userService: UserProfileService, private friendshipService: FriendshipService) { 
+  constructor(private route: ActivatedRoute, private userService: UserProfileService, private friendshipService: FriendshipService) {
     this.searchString = route.snapshot.paramMap.get('Username');
     console.log(this.searchString);
     this.users = this.userService.getUsersByUsername(this.searchString).subscribe((data) => {this.users = data});
   }
 
   ngOnInit(): void {
-  
+
   }
-  
+
   sendFriendRequest(username : string)  {
     this.friendship.username1 = this.userService.getCurrentUser().username;
     this.friendship.username2 = username;
-    this.friendShip.savefriendship(this.friendship).subscribe((data) => {this.friendship = data; console.log("friend added")});
-  
-    
+    this.friendshipService.saveFriendship(this.friendship).subscribe((data) => {this.friendship = data; console.log("friend added")});
+
+
   }
 
 }

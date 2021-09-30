@@ -29,12 +29,16 @@
                                     ISBN: {{ items[0].volumeInfo.industryIdentifiers[1].identifier }}</h4>
                             </ng-template>
         <br>
-        <img src="{{ items[0].volumeInfo.imageLinks.thumbnail }}" class="img-fluid img-thumbnail" width="200" height="500" alt="">
+      <p ng-container *ngIf="items[0].volumeInfo.imageLinks == null; else elseImage">
+        thumbnail unavailable</p>
+      <ng-template #elseImage><img src="{{ items[0].volumeInfo.imageLinks.thumbnail }}"
+                                   class="img-fluid img-thumbnail" width="200" height="500" alt="">
+      </ng-template>
         <hr class="dotted">
         <h2>Summary</h2>
         <p> {{ items[0].volumeInfo.description }} </p>
         <hr class="dotted">
-        
+
         <h4 ng-container *ngIf="items[0].saleInfo == null; else elsePrice1">price unavailable
         </h4>
         <ng-template #elsePrice1>

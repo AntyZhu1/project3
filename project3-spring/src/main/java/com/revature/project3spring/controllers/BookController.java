@@ -3,6 +3,7 @@ package com.revature.project3spring.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import com.revature.project3spring.services.BookService;
 
 @RestController
 public class BookController {
+	@Qualifier("bookServiceImpl")
 	@Autowired
 	private BookService service;
 	

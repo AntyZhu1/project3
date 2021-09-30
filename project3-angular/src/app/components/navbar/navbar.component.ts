@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,6 @@ export class NavbarComponent implements OnInit {
   }
   button() {
     this.router.navigate(['usersfriends', this.userService.getCurrentUser().username ])
- 
+
  }
 }

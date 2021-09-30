@@ -3,6 +3,7 @@ package com.revature.project3spring.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,8 @@ import com.revature.project3spring.services.BookClubSubscriptionService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class BookClubSubscriptionController {
-	
+
+	@Qualifier("bookClubSubscriptionServiceImpl")
 	@Autowired
 	private BookClubSubscriptionService service;
 	
