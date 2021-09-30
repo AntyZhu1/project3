@@ -26,7 +26,7 @@ export class BookDetailComponent implements OnInit {
   public title: any;
   public author: any;
 
-  constructor(private bookService: BooksService, private route: ActivatedRoute, private readlistService: ReadlistService, private dataService: DataService) { 
+  constructor(private bookService: BooksService, private route: ActivatedRoute, private readlistService: ReadlistService, private dataService: DataService) {
     this.isbn = this.route.snapshot.paramMap.get('ISBN') || '';
     this.title = this.route.snapshot.paramMap.get('title');
     this.author = this.route.snapshot.paramMap.get('author');
@@ -37,7 +37,7 @@ export class BookDetailComponent implements OnInit {
     // let bookString = JSON.stringify(this.bookService.getBookByISBN(isbn));
     // let bookJSON = JSON.parse(bookString);
 
-    // this.bookISBN = isbn; 
+    // this.bookISBN = isbn;
     // this.book = bookJSON;
     // this.bookTitle = bookJSON.title;
 
@@ -59,8 +59,9 @@ export class BookDetailComponent implements OnInit {
   }
   }
 
-  public addBook(book: any) {
-    let books = []; 
+  public addBook(title: any, author: any, image: any, price: any, description: any) {
+    let books = [];
+
 
     this.bookService.getAllBooks().subscribe((data) => {
       let isbn = this.route.snapshot.paramMap.get('ISBN');
