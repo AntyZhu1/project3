@@ -1,6 +1,6 @@
 # Project 3: Revved Up Reads
 ## Project Description
-Revved Up Books is a site that aims to provide the best community for book lovers. We offer an extensive collection of books and a hassle-free method 
+Revved Up Reads is a site that aims to provide the best community for book lovers. We offer an extensive collection of books and a hassle-free method 
 of searching allowing you to find the book that’s just right for you, quickly. We also provide a community where you can communicate in book clubs with
 other book lovers. The goal of this project is to demonstrate our understanding and knowledge of key concepts, languages, API's, stacks, and other knowledge 
 applicable in full stack development. As a group we ran through an Agile development cycle to create a complete and presentable monolithic apllication.
