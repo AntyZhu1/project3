@@ -1,3 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.bodyfriends{
+  background-image: url("src/assets/img/photo-1507842217343-583bb7270b66.jfif");
+  overflow: hidden;
+  min-height: 100vh;
 
+  /*background-height: 100%;*/
+
+  /*object-fit: cover;*/
+  /*overflow: hidden*/
+
+}
+.container2{
+  background-image: url("src/assets/img/login-img.jpg");
+  overflow: hidden;
+  min-height: 100vh;
+
+  /*width: 100%;*/
+}
 
