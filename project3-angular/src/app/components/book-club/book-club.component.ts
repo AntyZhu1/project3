@@ -52,7 +52,7 @@ export class BookClubComponent implements OnInit {
     //   console.log(this.bookclubs[0].clubCurrentIsbn)
 
     //   for (let index = 0; index < this.bookclubs.length; index++) {
-    //     this.dataService.getBooksByISBN(this.bookclubs[index].clubCurrentIsbn).subscribe(data =>{
+    //     this.dataService.getBookByISBN(this.bookclubs[index].clubCurrentIsbn).subscribe(data =>{
     //     this.bookclubs[index].bookCover =  data.items.volumeInfo.imageLinks.smallThumbnail;
     //     this.bookclubs[index].bookTitle = data.items.volumeInfo.title;
     //     this.bookclubs[index].bookAuthor = data.items.volumeInfo.authors;
@@ -60,11 +60,11 @@ export class BookClubComponent implements OnInit {
 
     //     console.log(this.books[index])
     //   })
-        
+
     //   }
-      
-      
-      
+
+
+
     // })
 
     //returns a book object by the ISBN
@@ -73,17 +73,17 @@ export class BookClubComponent implements OnInit {
     this.bookClubService.getBookClubByUserId(this.user.userId).subscribe(data =>{
       this.bookclub = data;
 
-      // this.dataService.getBooksByISBN(this.bookclub.clubCurrentIsbn).subscribe(data =>{
-      // this.book = data.items;
+      this.dataService.getBookByISBN(this.bookclub.clubCurrentIsbn).subscribe(data =>{
+      this.book = data.items;
       console.log(this.book);
     })
-    // })    
+    })
   }
 
   updateBook(){
     this.router.navigate(['/bookclub/', this.bookclub.clubId]);
   }
 
-  
+
 
 }

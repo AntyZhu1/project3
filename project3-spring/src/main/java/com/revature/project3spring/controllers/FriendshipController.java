@@ -34,12 +34,43 @@ public class FriendshipController {
     }
 
     @PutMapping("/friendship/approve")
-    public Friendship approveFriendship(@PathVariable("friendship_Id") long friendship_Id ,@RequestBody Friendship friendship) {
-        return service.approveFriendship(friendship_Id,friendship);
+    public Friendship approveFriendship(@RequestBody Friendship friendship) {
+        return service.approveFriendship(friendship);
     }
 
     @PutMapping("/friendship/decline")
-    public Friendship declineFriendship(@PathVariable("friendship_Id") long friendship_Id ,@RequestBody Friendship friendship) {
-        return service.declineFriendship(friendship_Id ,friendship);
+    public Friendship declineFriendship(@RequestBody Friendship friendship) {
+        return service.declineFriendship(friendship);
     }
 }
+
+//
+//    @Autowired
+//    FriendshipService service;
+//
+//    @GetMapping("/friendship")
+//    public List<Friendship> getAllFriendships() {
+//        return service.getAllFriendships();
+//    }
+//
+//    @GetMapping("/usersfriends/{username}")
+//    public List<Friendship> listAllUsersFriends(@PathVariable("username") String username1) {
+//        return service.listAllUsersFriends(username1);
+//    }
+//
+//
+//    @PostMapping("/friendship/add")
+//
+//    public Friendship saveFriendship(@RequestBody Friendship friendship) {
+//        return service.saveFriendship(friendship);
+//    }
+//
+//    @PutMapping("/friendship/approve")
+//    public Friendship approveFriendship(@RequestBody Friendship friendship) {
+//        return service.approveFriendship(friendship);
+//    }
+//
+//    @PutMapping("/friendship/decline")
+//    public Friendship declineFriendship(@RequestBody Friendship friendship) {
+//        return service.declineFriendship(friendship);
+//    }

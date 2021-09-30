@@ -57,7 +57,7 @@ export class DataService {
     return this.http.get<any>(this.ENDPOINTS.BOOKS_BY_ISBN + isbn + '&startIndex=' + index + '&maxResults=20');
   }
 
- 
+
 
   /**
    * Book retrieval SHOULD BE THE FIRST BOOK IN THE JSON,
@@ -103,4 +103,6 @@ export class DataService {
   public getBookFilteredByType(bookTitle: string, filterType: string): Observable<any> {
     return this.http.get<any>(this.ENDPOINTS.BOOK_FILTER + bookTitle + this.ENDPOINTS.AND_FILTER + filterType);
   }
+
+  public getBookByISBN(isbn: number): Observable<any> {     return this.http.get<any>(this.ENDPOINTS.BOOKS_BY_ISBN + isbn);   }
 }

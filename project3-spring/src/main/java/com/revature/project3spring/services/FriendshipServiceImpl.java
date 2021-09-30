@@ -27,24 +27,65 @@ public class FriendshipServiceImpl implements FriendshipService {
     }
 
     @Override
-    public List<Friendship> listAllUsersFriends(String username1) {
-        return null;
+    public  List<Friendship> listAllUsersFriends(String username1) {
+
+        List<Friendship> userFriendships = repository.findAll();
+        userFriendships.removeIf(userFriendship -> (!userFriendship.getUsername2().equals(username1)));
+        return userFriendships;
     }
 
     @Override
-    public Friendship declineFriendship(long friendship_id, Friendship friendship) {
-        Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus("declined");
+    public Friendship approveFriendship( Friendship friendship) {
 
-        return repository.save(friendshipDB);
+        friendship.setStatus("Approved");
+
+        return repository.save(friendship);
     }
 
-	@Override
-    public Friendship approveFriendship(long friendship_id, Friendship friendship) {
-        Friendship friendshipDB = repository.getById(friendship_id);
-        friendshipDB.setStatus("approved");
+    @Override
+    public Friendship declineFriendship(Friendship friendship) {
 
-        return repository.save(friendshipDB);
-	}
+        friendship.setStatus("Declined");
+
+        return repository.save(friendship);
+    }
 
 }
+//
+//    @Autowired
+//    private FriendshipRepository repository;
+//
+//    @Override
+//    public Friendship saveFriendship(Friendship friendship) {
+//        return repository.save(friendship);
+//    }
+//
+//    @Override
+//    public List<Friendship> getAllFriendships() {
+//        return repository.findAll();
+//    }
+//
+//    @Override
+//    public  List<Friendship> listAllUsersFriends(String username1) {
+//
+//        List<Friendship> userFriendships = repository.findAll();
+//        userFriendships.removeIf(userFriendship -> (!userFriendship.getUsername2().equals(username1)));
+//        return userFriendships;
+//    }
+//
+//    @Override
+//    public Friendship approveFriendship( Friendship friendship) {
+//
+//        friendship.setStatus("Approved");
+//
+//        return repository.save(friendship);
+//    }
+//
+//    @Override
+//    public Friendship declineFriendship(Friendship friendship) {
+//
+//        friendship.setStatus("Declined");
+//
+//        return repository.save(friendship);
+//    }
+//

@@ -14,7 +14,7 @@ public interface FriendshipService {
 
     List<Friendship> listAllUsersFriends(String username1);
 
-    Friendship approveFriendship(long friendship_Id, Friendship friendship);
+    Friendship approveFriendship(Friendship friendship);
 
-    Friendship declineFriendship(long friendship_Id, Friendship friendship);
+    Friendship declineFriendship(Friendship friendship);
 }
