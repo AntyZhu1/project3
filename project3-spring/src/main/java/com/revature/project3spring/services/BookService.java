@@ -10,4 +10,5 @@ import com.revature.project3spring.entities.Book;
 public interface BookService {
 	List<Book> getAllBook();
 	List<Book> getAllBookByBookTitleContaining(String title);
+	Book saveBook(Book book);
 }

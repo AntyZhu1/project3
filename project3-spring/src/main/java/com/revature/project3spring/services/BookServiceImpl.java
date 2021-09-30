@@ -22,5 +22,10 @@ public class BookServiceImpl implements BookService{
 	public List<Book> getAllBookByBookTitleContaining(String title) {
 		return repository.findAllBookByTitleContaining(title);
 	}
+
+	@Override
+	public Book saveBook(Book book) {
+		return repository.save(book);
+	}
 	
 }
