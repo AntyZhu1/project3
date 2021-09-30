@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { ReadlistService } from 'src/app/services/readlist.service';
 import { ActivatedRoute } from '@angular/router';
 import { IReadlist } from 'src/app/models/readlist.model';
+import { IBook } from 'src/app/models/book.model'
 
 
 
@@ -41,6 +42,8 @@ export class ProductsComponent implements OnInit {
   public bookFound: any;
 
   public bestSellerSort: Boolean=false;
+
+  public b: any;
 
 
   constructor(private bookService: BooksService, private readlistService:
@@ -354,7 +357,12 @@ export class ProductsComponent implements OnInit {
     });
   }
   public addBook(book: any) {
-    this.readlistService.addReadlistEntry(book);
+    this.b = { isbn : book.volumeInfo.industryIdentifiers[0].identifier, author: book.volumeInfo.authors[0], image: book.volumeInfo.imageLinks.thumbnail, price: book.saleInfo.retailPrice.amount, summary: book.volumeInfo.description, title: book.volumeInfo.title }
+    this.dataService.addBook(this.b).subscribe(data =>
+      console.log(data)
+      )
+    this.readlistService.addReadlistEntry(this.b);
+    alert("Book added to reading list");
   }
 
 }

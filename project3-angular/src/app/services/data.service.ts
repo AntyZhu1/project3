@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { IBook } from 'src/app/models/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class DataService {
     BOOKS_BY_AUTHOR: 'https://www.googleapis.com/books/v1/volumes?q=inauthor:', //+ author name,
     BOOKS_BY_ISBN: 'https://www.googleapis.com/books/v1/volumes?q=isbn: ', //Leave space after colon,Can search by 10 digit or 13 digit API
     BOOKS_BY_GENRE: 'https://www.googleapis.com/books/v1/volumes?q=subject:', // Grab genre code
+    BACKEND: 'http://localhost:9031/book',
 
 
     BOOK_FILTER: 'https://www.googleapis.com/books/v1/volumes?q=',  /* book title */
@@ -102,6 +104,10 @@ export class DataService {
    */
   public getBookFilteredByType(bookTitle: string, filterType: string): Observable<any> {
     return this.http.get<any>(this.ENDPOINTS.BOOK_FILTER + bookTitle + this.ENDPOINTS.AND_FILTER + filterType);
+  }
+
+  public addBook(book: IBook): Observable<IBook>  {
+    return this.http.post<IBook>(`${this.ENDPOINTS.BACKEND}`, book);
   }
 
   public getBookByISBN(isbn: number): Observable<any> {     return this.http.get<any>(this.ENDPOINTS.BOOKS_BY_ISBN + isbn);   }

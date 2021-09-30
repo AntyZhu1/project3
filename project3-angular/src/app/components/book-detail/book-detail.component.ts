@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { DataService } from 'src/app/services/data.service';
 import { ReadlistService } from 'src/app/services/readlist.service';
+import { IBook } from 'src/app/models/book.model'
 
 @Component({
   selector: 'app-book-detail',
@@ -25,6 +26,7 @@ export class BookDetailComponent implements OnInit {
   public items: any;
   public title: any;
   public author: any;
+  public b: any;
 
   constructor(private bookService: BooksService, private route: ActivatedRoute, private readlistService: ReadlistService, private dataService: DataService) {
     this.isbn = this.route.snapshot.paramMap.get('ISBN') || '';
@@ -42,7 +44,7 @@ export class BookDetailComponent implements OnInit {
     // this.bookTitle = bookJSON.title;
 
     // console.log(this.book.title);
-
+    
   }
 
   ngOnInit(): void {
@@ -59,19 +61,15 @@ export class BookDetailComponent implements OnInit {
   }
   }
 
-  public addBook(title: any, author: any, image: any, price: any, description: any) {
+  public addBook(title: any, author: any, image: any, price: any, summary: any, isbn: any) {
     let books = [];
-
-
-    this.bookService.getAllBooks().subscribe((data) => {
-      let isbn = this.route.snapshot.paramMap.get('ISBN');
-      books = data;
-      for (let i = 0; i <books.length; i++){
-        if (books[i].isbn == isbn){
-          this.currentBook = books[i];
-          this.readlistService.addReadlistEntry(this.currentBook);
-        }
-      }
-    });
+    this.b  = {   title, author, image, price, summary, isbn     }
+    console.log(this.b);
+    // this.dataService.addBook(this.b);
+    this.dataService.addBook(this.b).subscribe(data =>
+      console.log(data)
+      )
+    this.readlistService.addReadlistEntry(this.b);
+    alert("Book added to reading list");
   }
 }
